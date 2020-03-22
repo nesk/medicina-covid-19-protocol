@@ -216,9 +216,25 @@
 
     <script>
         function showForm(form) {
-            $('form').hide()
-            $(`#${form}`).show()
+            const id = `#${form}`;
+
+            if ($(id).length > 0) {
+                $('form').hide()
+                $(id).show()
+            }
         }
+
+        $(window).on('hashchange', () => {
+            const hash = location.hash.substring(1);
+            if (hash.length > 0) {
+                showForm(hash)
+            } else {
+                showForm('check-gravity-signs')
+            }
+            document.querySelector('html').scrollTo(0,0)
+        })
+
+        $(window).trigger('hashchange')
 
         function onSubmit(form, callback) {
             $(`#${form}`).on('submit', e => {
@@ -231,25 +247,25 @@
 
         onSubmit('check-gravity-signs', data => {
             if (data.get('has-gravity-signs') === 'yes') {
-                showForm('has-gravity-signs')
+                window.location = '#has-gravity-signs'
             } else {
-                showForm('has-no-gravity-signs')
+                window.location = '#has-no-gravity-signs'
             }
         })
 
         onSubmit('has-no-gravity-signs', data => {
             if (data.get('age') === '<70' && data.get('fdr') === 'none') {
-                showForm('is-young-without-fdr')
+                window.location = '#is-young-without-fdr'
             } else {
-                showForm('is-old-or-with-fdr')
+                window.location = '#is-old-or-with-fdr'
             }
         })
 
         onSubmit('is-old-or-with-fdr', data => {
             if (data.get('sample') === '-') {
-                showForm('sample-negative')
+                window.location = '#sample-negative'
             } else {
-                showForm('sample-positive')
+                window.location = '#sample-positive'
             }
         })
     </script>
