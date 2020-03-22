@@ -19,7 +19,7 @@
             margin-bottom: 2rem;
         }
 
-        form:not([data-step=check-gravity-signs]) {
+        form:not([id=check-gravity-signs]) {
             display: none;
         }
 
@@ -37,7 +37,7 @@
 <body>
     <h4 class="mb-4">Protocole SARS CoV 2 – Medicina</h4>
 
-    <form data-step="check-gravity-signs">
+    <form id="check-gravity-signs">
         <h5 class="mb-3">Présence d'un signe de gravité ?</h5>
         <ul class="list-group mb-4">
             <li class="list-group-item">FR &gt; 25/min</li>
@@ -66,7 +66,7 @@
         </div>
     </form>
 
-    <form data-step="has-gravity-signs">
+    <form id="has-gravity-signs">
         <h5 class="mb-3">Protocole Urgence COVID</h5>
         <ul class="list-group mb-4">
             <li class="list-group-item">Appel Secrétariat <small>(appel SAMU par secrétariat)</small></li>
@@ -77,7 +77,7 @@
         </ul>
     </form>
 
-    <form data-step="has-no-gravity-signs">
+    <form id="has-no-gravity-signs">
         <h5 class="mb-3">Profil du patient</h5>
 
         <div class="text-center mb-4">
@@ -134,37 +134,38 @@
         </div>
     </form>
 
-    <form data-step="is-young-without-fdr">
+    <form id="is-young-without-fdr">
         <h5 class="mb-3">Patient jeune ET sans FDR</h5>
 
         <label>Impression feuille RAD</label>
         <ul class="list-group mb-4">
-            <li class="list-group-item">Consignes surveillance / Appel 15</small></li>
+            <li class="list-group-item">Consignes surveillance / Appel 15</li>
             <li class="list-group-item">Consignes hygiène</li>
             <li class="list-group-item">Évolution normale / anormale</li>
         </ul>
 
         <label>Gérer le patient</label>
         <ul class="list-group mb-4">
-            <li class="list-group-item">Rassurer le patient</small></li>
+            <li class="list-group-item">Rassurer le patient</li>
             <li class="list-group-item">Confinement à domicile avec télésurveillance et, si besoin, arrêt maladie 14 jours.</li>
             <li class="list-group-item">Appel 15 selon feuille RAD</li>
         </ul>
     </form>
 
-    <form data-step="is-old-or-with-fdr">
-        <h5 class="mb-3">Patient âgé OU avec FDR</h5>
+    <form id="is-old-or-with-fdr">
+        <h5 class="mb-3">Protocole Prélèvement COVID</h5>
 
         <label>Gérer le patient</label>
         <ul class="list-group mb-4">
-            <li class="list-group-item">Confinement à domicile 14 jours</small></li>
+            <li class="list-group-item">Inclusion télésurveillance</li>
+            <li class="list-group-item">Confinement à domicile 14 jours</li>
             <li class="list-group-item">Téléconsultation à J7</li>
             <li class="list-group-item">Appel 15 selon feuille RAD</li>
         </ul>
 
         <label>Impression feuille RAD</label>
         <ul class="list-group mb-4">
-            <li class="list-group-item">Consignes surveillance / Appel 15</small></li>
+            <li class="list-group-item">Consignes surveillance / Appel 15</li>
             <li class="list-group-item">Consignes hygiène</li>
             <li class="list-group-item">Évolution normale / anormale</li>
         </ul>
@@ -189,13 +190,13 @@
         </div>
     </form>
 
-    <form data-step="sample-negative">
+    <form id="sample-negative">
         <h5 class="mb-3">Prélèvement négatif</h5>
 
         <p>Potentielle RP pour diagnostic différentiel</p>
     </form>
 
-    <form data-step="sample-positive">
+    <form id="sample-positive">
         <h5 class="mb-3">Prélèvement positif</h5>
 
         <p>Pas d'indication d'imagerie</p>

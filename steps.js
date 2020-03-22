@@ -1,35 +1,37 @@
-$('form[data-step=check-gravity-signs]').on('submit', e => {
-    e.preventDefault()
-    const data = new FormData(e.target)
+function showForm(form) {
+    $('form').hide()
+    $(`#${form}`).show()
+}
 
-    $('form[data-step]').hide()
+function onSubmit(form, callback) {
+    $(`#${form}`).on('submit', e => {
+        e.preventDefault()
+        const data = new FormData(e.target)
+
+        callback(data)
+    })
+}
+
+onSubmit('check-gravity-signs', data => {
     if (data.get('has-gravity-signs') === 'yes') {
-        $('form[data-step=has-gravity-signs]').show()
+        showForm('has-gravity-signs')
     } else {
-        $('form[data-step=has-no-gravity-signs]').show()
+        showForm('has-no-gravity-signs')
     }
 })
 
-$('form[data-step=has-no-gravity-signs]').on('submit', e => {
-    e.preventDefault()
-    const data = new FormData(e.target)
-
-    $('form[data-step]').hide()
+onSubmit('has-no-gravity-signs', data => {
     if (data.get('age') === '<70' && data.get('fdr') === 'none') {
-        $('form[data-step=is-young-without-fdr]').show()
+        showForm('is-young-without-fdr')
     } else {
-        $('form[data-step=is-old-or-with-fdr]').show()
+        showForm('is-old-or-with-fdr')
     }
 })
 
-$('form[data-step=is-old-or-with-fdr]').on('submit', e => {
-    e.preventDefault()
-    const data = new FormData(e.target)
-
-    $('form[data-step]').hide()
+onSubmit('is-old-or-with-fdr', data => {
     if (data.get('sample') === '-') {
-        $('form[data-step=sample-negative]').show()
+        showForm('sample-negative')
     } else {
-        $('form[data-step=sample-positive]').show()
+        showForm('sample-positive')
     }
 })
