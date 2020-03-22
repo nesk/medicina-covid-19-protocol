@@ -28,6 +28,10 @@
             background-color: #0062cc !important;
             border-color: #005cbf !important;
         }
+
+        svg {
+            height: 1em;
+        }
     </style>
 </head>
 <body>
@@ -74,12 +78,7 @@
     </form>
 
     <form data-step="has-no-gravity-signs">
-        <h5 class="mb-3">Inclusion télésuveillance &amp; Impression feuille RAD</h5>
-        <ul class="list-group mb-4">
-            <li class="list-group-item">Consignes surveillance / Appel 15</small></li>
-            <li class="list-group-item">Consignes hygiène</li>
-            <li class="list-group-item">Évolution normale / anormale</li>
-        </ul>
+        <h5 class="mb-3">Profil du patient</h5>
 
         <div class="text-center mb-4">
             <label>Âge du patient</label><br>
@@ -114,6 +113,15 @@
 
     <form data-step="is-young-without-fdr">
         <h5 class="mb-3">Patient jeune ET sans FDR</h5>
+
+        <label>Impression feuille RAD</label>
+        <ul class="list-group mb-4">
+            <li class="list-group-item">Consignes surveillance / Appel 15</small></li>
+            <li class="list-group-item">Consignes hygiène</li>
+            <li class="list-group-item">Évolution normale / anormale</li>
+        </ul>
+
+        <label>Gérer le patient</label>
         <ul class="list-group mb-4">
             <li class="list-group-item">Rassurer le patient</small></li>
             <li class="list-group-item">Confinement à domicile avec télésurveillance et, si besoin, arrêt maladie 14 jours.</li>
@@ -123,11 +131,51 @@
 
     <form data-step="is-old-or-with-fdr">
         <h5 class="mb-3">Patient âgé OU avec FDR</h5>
+
+        <label>Gérer le patient</label>
         <ul class="list-group mb-4">
             <li class="list-group-item">Confinement à domicile 14 jours</small></li>
             <li class="list-group-item">Téléconsultation à J7</li>
             <li class="list-group-item">Appel 15 selon feuille RAD</li>
         </ul>
+
+        <label>Impression feuille RAD</label>
+        <ul class="list-group mb-4">
+            <li class="list-group-item">Consignes surveillance / Appel 15</small></li>
+            <li class="list-group-item">Consignes hygiène</li>
+            <li class="list-group-item">Évolution normale / anormale</li>
+        </ul>
+
+        <div class="text-center mb-4">
+            <label>Résultat prélèvement COVID</label><br>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-light">
+                    <input type="radio" name="sample" autocomplete="off" value="-">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="minus" class="svg-inline--fa fa-minus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg>
+                </label>
+
+                <label class="btn btn-light">
+                    <input type="radio" name="sample" autocomplete="off" value="+">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" class="svg-inline--fa fa-plus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg>
+                </label>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Suivant</button>
+        </div>
+    </form>
+
+    <form data-step="sample-negative">
+        <h5 class="mb-3">Prélèvement négatif</h5>
+
+        <p>Potentielle RP pour diagnostic différentiel</p>
+    </form>
+
+    <form data-step="sample-positive">
+        <h5 class="mb-3">Prélèvement positif</h5>
+
+        <p>Pas d'indication d'imagerie</p>
     </form>
 
     <footer class="footer text-center mt-5">

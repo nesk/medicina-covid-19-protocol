@@ -21,3 +21,15 @@ $('form[data-step=has-no-gravity-signs]').on('submit', e => {
         $('form[data-step=is-old-or-with-fdr]').show()
     }
 })
+
+$('form[data-step=is-old-or-with-fdr]').on('submit', e => {
+    e.preventDefault()
+    const data = new FormData(e.target)
+
+    $('form[data-step]').hide()
+    if (data.get('sample') === '-') {
+        $('form[data-step=sample-negative]').show()
+    } else {
+        $('form[data-step=sample-positive]').show()
+    }
+})
